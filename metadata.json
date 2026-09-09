@@ -1,0 +1,6 @@
+{
+  "name": "Controller AI Lab",
+  "description": "Interactive collaboration tool for the Controller AI Boot Camp — from chat to co-worker, one Controller problem at a time.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

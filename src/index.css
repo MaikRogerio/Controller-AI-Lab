@@ -1,0 +1,166 @@
+@import "tailwindcss";
+
+:root {
+  --surface: #ffffff;
+  --surface-subtle: #f8f9fc;
+  --surface-hover: #f1f3f9;
+  --surface-selected: #e9ecf5;
+
+  --text-primary: #0f172a;
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --outline: #94a3b8;
+  --outline-light: #cbd5e1;
+
+  --primary: #0047ff; /* Official vibrant EPAM blue */
+  --primary-secondary: #003bd6;
+  --primary-gradient-end: #2563eb;
+  --teal: #0047ff;
+  --purple: #673fa9;
+
+  --positive: #16a34a;
+  --negative: #dc2626;
+  --warning: #d97706;
+  --cyan: #0047ff;
+  --orange: #ea580c;
+
+  --border: rgba(15, 23, 42, 0.12);
+  --sidebar-border: rgba(15, 23, 42, 0.10);
+
+  --blue-soft: #eff4ff;
+  --green-soft: #f0fdf4;
+  --red-soft: #fef2f2;
+  --amber-soft: #fffbeb;
+  --purple-soft: #f5f3ff;
+
+  --brand-gradient: linear-gradient(135deg, #0047ff 0%, #2563eb 100%);
+
+  --font-ui: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-data: "JetBrains Mono", Consolas, monospace;
+
+  --sidebar-width: 260px;
+
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-pill: 9999px;
+
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --shadow-section: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-hover: 0 12px 30px rgba(0, 71, 255, 0.12);
+}
+
+.dark {
+  --surface: #000000; /* Full pitch black requested by user */
+  --surface-subtle: #0a0a0a;
+  --surface-hover: #141414;
+  --surface-selected: #1a1a1a;
+
+  --text-primary: #ffffff;
+  --text-secondary: #d4d4d8;
+  --text-muted: #a1a1aa;
+  --outline: #52525b;
+  --outline-light: #27272a;
+
+  --primary: #0047ff; /* Official vibrant EPAM blue */
+  --primary-secondary: #2563eb;
+  --primary-gradient-end: #3b82f6;
+  --teal: #0047ff;
+  --purple: #8b5cf6;
+
+  --positive: #22c55e;
+  --negative: #ef4444;
+  --warning: #f59e0b;
+  --cyan: #0047ff;
+  --orange: #f97316;
+
+  --border: rgba(255, 255, 255, 0.12);
+  --sidebar-border: rgba(255, 255, 255, 0.10);
+
+  --blue-soft: #0a0a0a;
+  --green-soft: #0a0a0a;
+  --red-soft: #0a0a0a;
+  --amber-soft: #0a0a0a;
+  --purple-soft: #0a0a0a;
+
+  --brand-gradient: linear-gradient(135deg, #0047ff 0%, #2563eb 100%);
+  --selected-border-gradient: linear-gradient(90deg, #00ebd6 0%, #8b5cf6 100%);
+
+  --shadow-card: 0 1px 4px rgba(0, 0, 0, 0.9);
+  --shadow-section: 0 2px 10px rgba(0, 0, 0, 0.95);
+  --shadow-hover: 0 12px 32px rgba(0, 71, 255, 0.25);
+}
+
+@layer base {
+  html, body {
+    font-family: var(--font-ui);
+    color: var(--text-primary);
+    background-color: var(--surface);
+    scroll-behavior: smooth;
+    letter-spacing: -0.011em;
+  }
+}
+
+/* EPAM Cyan-to-Purple Gradient Border for Selected Options in Dark Mode (matching Image 3) */
+.dark-option-selected {
+  position: relative;
+  border: 1.5px solid transparent !important;
+  background: 
+    linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+    linear-gradient(90deg, #00ebd6 0%, #8b5cf6 100%) border-box !important;
+  color: #ffffff !important;
+  box-shadow: 0 0 15px rgba(0, 235, 214, 0.16) !important;
+}
+
+.dark-option-selected-pill {
+  position: relative;
+  border: 2px solid transparent !important;
+  background: 
+    linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+    linear-gradient(90deg, #00ebd6 0%, #8b5cf6 100%) border-box !important;
+  color: #ffffff !important;
+  border-radius: 9999px !important;
+  box-shadow: 0 0 18px rgba(0, 235, 214, 0.18) !important;
+}
+
+/* Active/focused input and select styling in dark mode */
+.dark select:focus,
+.dark input:focus {
+  border: 1.5px solid transparent !important;
+  background: 
+    linear-gradient(#0a0a0a, #0a0a0a) padding-box,
+    linear-gradient(90deg, #00ebd6 0%, #8b5cf6 100%) border-box !important;
+  outline: none !important;
+  box-shadow: 0 0 14px rgba(0, 235, 214, 0.14) !important;
+}
+
+/* Custom 3D Stage Perspective for Awwwards Circulating Transition */
+.perspective-stage {
+  perspective: 1200px;
+  perspective-origin: 50% 50%;
+  transform-style: preserve-3d;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+/* Sleek custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(196, 197, 217, 0.5);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--outline);
+}
